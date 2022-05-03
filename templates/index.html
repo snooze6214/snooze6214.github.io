@@ -1,0 +1,39 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<style>
+
+.picture {
+    height: 9rem;
+    min-width: 9rem;
+    margin-left: auto; 
+    margin-right: auto;
+}
+</style>
+
+<h3 style="text-align: center;">Hi there, i'm snooze6214</h1>
+<div class="row flex-center">
+    <div class="lg-9 col">
+        Big computer nerd. Computer science and engineering undergrad.
+        Anime enjoyer. Cat person. Casual gamer. Programming in my free time because 
+        my social life is non-existant. 😎
+        <br>
+        Programing languages I use: C, C++, Python, JavaScript, Java(sometimes)
+        <br>
+        Programming languages I wanna use: Rust, zig, Kotlin
+    </div>
+    <div class="lg-3 col">
+        <img class="picture" src="https://avatars.githubusercontent.com/u/7570033" />
+    </div>
+</div>
+<div class="paper">
+    <h4 class="margin-top-small">Blog posts</h4>
+    <ul>
+        {% set blog_section = get_section(path="blog/_index.md") %}
+        {% for page in blog_section.pages %}
+            <li><a href="{{ page.permalink | safe }}">[{{ page.date }}] {{ page.title }} </a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}
